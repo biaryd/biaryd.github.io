@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Genos:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <nav class="navbar">
+            <a class="nav-link" href="/views/index.html"><i class="bi bi-house-fill"></i></a>
+            <a class="nav-link nav-right" href="https://github.com/RhovBianca/"><i class="bi bi-github"></i></a>
+            <a class="nav-link" href="https://se.linkedin.com/in/bianca-rydenhov-380a30291"><i class="bi bi-linkedin"></i></a>
+        </nav>
+
+    <div class="project-container">
+        <div id="project-content">
+
+            <script>
+                // Hämta URL-parametern (t.ex. ?id=1)
+                const urlParams = new URLSearchParams(window.location.search);
+                const projectId = urlParams.get('id');
+
+                // Skapa en funktion för att visa rätt projekt baserat på ID
+                function loadProject(id) {
+                    const projectContent = document.getElementById('project-content');
+                    if (id == '1') {
+                        projectContent.innerHTML = `
+                            <h2>PIA: Pervasive Information Architecture</h2>
+                            <p>This project I made in the course "multi-platform applications", here I show my knowledge on designing pervasive information architecture.
+                                I decided to analyze and explore the payment application Klarna to see how they use PIA wihle designing their platform on different channels. 
+                                I started the project by choosing topic, and Klarna was an obvious choice for me as i've used it myself and also know they have many elements
+                                that adds to a users perception. A second step for me was to align my design with truthful colors that actually mirrors the Klarna application,
+                                therefore my poster not only is created with the similar colors and forms, but also with the exact icons Klarna uses. 
+                            </p>
+                            <p>Another part of the project was to connect the poster to a QR-code linking to a miroboard that would give the reader even more information on how 
+                                Klarna is using different elements based on different channels to customize the user experience. Lastly but not least I also gave my perception on
+                                how they manage to apply Nielsens Heuristics.
+                            </p>
+                            <img src="/static/pia.png" alt="interaction design" style="width:100%">
+                            <img src="/static/pia-wf.png" alt="interaction design" style="width:100%">
+
+                        `;
+                    } else if (id == '2') {
+                        projectContent.innerHTML = `
+                            <h2>Programming Project</h2>
+                            <p>This is a placeholder project for programming...</p>
+                            <img src="/static/soon.png" alt="programming" style="width:100%">
+                        `;
+                    } else if (id == '3') {
+                        projectContent.innerHTML = `
+                            <h2>Frontend Project</h2>
+                            <p>This is a placeholder project for frontend development...</p>
+                            <img src="/static/soon.png" alt="frontend" style="width:100%">
+                        `;
+                    } else {
+                        projectContent.innerHTML = `<p>Project not found.</p>`;
+                    }
+                }
+
+                // Ladda projektet baserat på ID:n
+                if (projectId) {
+                    loadProject(projectId);
+                } else {
+                    document.getElementById('project-content').innerHTML = '<p>No project specified.</p>';
+                }
+            </script>
+        </div>
+     </div>
+    </div>
+
+</body>
+</html>
